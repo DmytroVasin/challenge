@@ -33,6 +33,7 @@ class Parser
     }.flatten.uniq
   end
 
+  private
   def add_domain link, root_url
     /^(#{root_url})/ =~ link ? link : "#{root_url}#{link}"
   end

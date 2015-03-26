@@ -23,13 +23,13 @@ class Crawler
     current_page_links = []
 
     urls.each{ |url|
-      if @visited_links.exclude? url
+      unless @visited_links.include?(url)
         @visited_links << url
 
         # THREAD Start:
         threads << Thread.new(url) do |_url|
           p "Fetch #{url}"
-          page = Curl.new(_url).visit
+          page = Parser.new(_url).visit
           p "Got response for #{url}"
 
           if page.is_opened

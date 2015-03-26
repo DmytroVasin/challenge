@@ -1,5 +1,3 @@
-# require 'builder'
-
 class SitemapXml
   def initialize host
     @host = host
@@ -17,7 +15,7 @@ class SitemapXml
   end
 
   def file_name
-    "#{ @host.parameterize }.xml"
+    "#{ parameterize(@host) }.xml"
   end
 
   private

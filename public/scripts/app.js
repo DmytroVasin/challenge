@@ -1,6 +1,4 @@
 $(function(){
-  console.log('!!!!');
-
   $goButton = $('.navbar-form .btn')
   $searchField = $('.navbar-form input')
 
@@ -16,9 +14,21 @@ $(function(){
     $.ajax({
       url: '/parse',
       type: 'GET',
-      dataType: 'script',
+      dataType: 'json',
       data: {
         url_to_parse: urlToParse
+      },
+      success: function (response) {
+        $('.btn-lg').append('<a href="/download/'+response.file_path+'">Download</a>');
+        $('.spinner').remove();
+      },
+      error: function () {
+        $('.container.wall').prepend("\
+          <div class='alert alert-warning'>Please provide url like:\
+            <strong>http(s)://some_domain.com</strong>\
+          </div>\
+          ");
+        $('.btn-lg').remove()
       }
     });
 
