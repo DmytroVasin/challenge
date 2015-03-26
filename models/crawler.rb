@@ -8,7 +8,7 @@ class Crawler
     @founded_links = []
   end
 
-  def start deep_lvl: 1
+  def start deep_lvl: 3
     arr = [@root_url]
     deep_lvl.times do
       arr = parse_url(arr)
