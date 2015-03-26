@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UaWebChallenge</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">UA Web challenge</a>
+        <div class="navbar-form navbar-right">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="http://site_url.com">
+            <span class="input-group-btn">
+              <a href="#" class='btn btn-default'>GO!</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container wall'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
