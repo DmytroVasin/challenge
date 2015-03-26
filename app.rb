@@ -1,25 +1,27 @@
 require 'rubygems'
 require 'sinatra'
 
-require Dir.pwd + '/parser.rb' # наш класс для парсинга сообщений из Твиттера
-
+require_relative 'models/crawler.rb'
+require_relative 'models/parser.rb'
+require_relative 'models/sitemap_xml.rb'
 
 get '/' do
-  @title = 'Welcome to the Suffragist!'
   erb :index
 end
-# post '/cast' do
-#   @title = 'Thanks for casting your vote!'
-#   @vote  = params['vote']
-#   erb :cast
+
+# get '/parse' do
+#   uri = URI.parse(params[:url_to_parse])
+#   host, scheme = uri.host, uri.scheme
+
+#   site_map = SitemapXml.new(host)
+#   @file_path = if host && !site_map.exist?
+#     parsed_links = Сrawler.new(host, scheme).start
+#     site_map.create(parsed_links)
+#   else
+#     site_map.file_name
+#   end
 # end
 
-# get '/hello/:name' do
-#   params[:name]
+# get '/download/:file_name' do
+#   send_file(File.join(Rails.root, params[:file_name]))
 # end
-
-
-# ----------------------
-  # root 'welcome#index'
-  # get 'parse', to: 'welcome#parse'
-  # get 'download/:file_name', to: 'welcome#download'
